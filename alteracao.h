@@ -8,7 +8,7 @@ void alterarComida(){
 	FILE *fp;
 	int codigo;
 	
-	if((fp=fopen("comida.bin", "r+b"))!=NULL){
+        if((fp=fopen("comida.bin", "r+b"))!=NULL){
 	
 		system("cls");
 		printf(" //////////////////////////////////////////////////////////////////////\n");
@@ -17,20 +17,20 @@ void alterarComida(){
 		printf("\n");
 		printf(" //////////////////////////////////////////////////////////////////////\n\n");
 		
-		puts("Informe o código da comida a ser alterado:");
+		puts("Informe o cÃ³digo da comida a ser alterado:");
 		scanf("%i", &codigo);
 		
 		while(fread(&x, sizeof(Item), 1, fp) == 1){
 			if(codigo == x.cod && x.removido == 0){
 				puts(ANSI_COLOR_GREEN "\n\tDados atuais:");
-				printf("\t\tCódigo: %i\n", x.cod);
+				printf("\t\tCÃ³digo: %i\n", x.cod);
 				printf("\t\tNome: %s\n", x.nome);
-				printf("\t\tDescrição: %s\n", x.descricao);
-				printf("\t\tPreço: %.2f\n", x.preco);
+				printf("\t\tDescriÃ§Ã£o: %s\n", x.descricao);
+				printf("\t\tPreÃ§o: %.2f\n", x.preco);
 				printf("\t\tTipo: Comida\n\n" ANSI_COLOR_RESET);
 				
 				fseek(fp, -(long) sizeof(Item), SEEK_CUR);
-				puts("Alteração dos dados atuais:");	
+				puts("AlteraÃ§Ã£o dos dados atuais:");	
 				leValidaDescricao(x.descricao);
 				x.preco = leValidaPreco(x.preco);
 				
@@ -41,11 +41,11 @@ void alterarComida(){
 		}
 		
 		if(codigo != x.cod){
-			puts("\nCódigo não encontrado na base de dados.");
+			puts("\nCÃ³digo nÃ£o encontrado na base de dados.");
 		}
 		fclose(fp);
 	}else{
-		puts("\nArquivo não localizado.");
+		puts("\nArquivo nÃ£o localizado.");
 	}
 }
 
@@ -63,20 +63,20 @@ void alterarBebida(){
 		printf("\n");
 		printf(" //////////////////////////////////////////////////////////////////////\n\n");
 		
-		puts("Informe o código da bebida a ser alterado:");
+		puts("Informe o cÃ³digo da bebida a ser alterado:");
 		scanf("%i", &codigo);
 		
 		while(fread(&x, sizeof(Item), 1, fp) == 1){
 			if(codigo == x.cod && x.removido == 0){
 				puts(ANSI_COLOR_YELLOW "\n\tDados atuais:");
-				printf("\t\tCódigo: %i\n", x.cod);
+				printf("\t\tCÃ³digo: %i\n", x.cod);
 				printf("\t\tNome: %s\n", x.nome);
-				printf("\t\tDescrição: %s\n", x.descricao);
-				printf("\t\tPreço: %.2f\n", x.preco);
+				printf("\t\tDescriÃ§Ã£o: %s\n", x.descricao);
+				printf("\t\tPreÃ§o: %.2f\n", x.preco);
 				printf("\t\tTipo: Bebida\n\n" ANSI_COLOR_RESET);
 				
 				fseek(fp, -(long) sizeof(Item), SEEK_CUR);
-				puts("Alteração dos dados atuais:");	
+				puts("AlteraÃ§Ã£o dos dados atuais:");	
 				leValidaDescricao(x.descricao);
 				x.preco = leValidaPreco(x.preco);
 				
@@ -87,11 +87,11 @@ void alterarBebida(){
 		}
 		
 		if(codigo != x.cod){
-			puts("\nCódigo não encontrado na base de dados.");
+			puts("\nCÃ³digo nÃ£o encontrado na base de dados.");
 		}
 		fclose(fp);
 	}else{
-		puts("\nArquivo não localizado.");
+		puts("\nArquivo nÃ£o localizado.");
 	}
 }
 
@@ -109,20 +109,20 @@ void alterarVinho(){
 		printf("\n");
 		printf(" //////////////////////////////////////////////////////////////////////\n\n");
 		
-		puts("Informe o código do vinho a ser alterado:");
+		puts("Informe o cÃ³digo do vinho a ser alterado:");
 		scanf("%i", &codigo);
 		
 		while(fread(&x, sizeof(Item), 1, fp) == 1){
 			if(codigo == x.cod && x.removido == 0){
 				puts(ANSI_COLOR_RED "\n\tDados atuais:");
-				printf("\t\tCódigo: %i\n", x.cod);
+				printf("\t\tCÃ³digo: %i\n", x.cod);
 				printf("\t\tNome: %s\n", x.nome);
-				printf("\t\tDescrição: %s\n", x.descricao);
-				printf("\t\tPreço: %.2f\n", x.preco);
+				printf("\t\tDescriÃ§Ã£o: %s\n", x.descricao);
+				printf("\t\tPreÃ§o: %.2f\n", x.preco);
 				printf("\t\tTipo: Vinho\n\n" ANSI_COLOR_RESET);
 				
 				fseek(fp, -(long) sizeof(Item), SEEK_CUR);
-				puts("Alteração dos dados atuais:");	
+				puts("AlteraÃ§Ã£o dos dados atuais:");	
 				leValidaDescricao(x.descricao);
 				x.preco = leValidaPreco(x.preco);
 				
@@ -133,10 +133,10 @@ void alterarVinho(){
 		}
 		
 		if(codigo != x.cod){
-			puts("\nCódigo não encontrado na base de dados.");
+			puts("\nCÃ³digo nÃ£o encontrado na base de dados.");
 		}
 		fclose(fp);
 	}else{
-		puts("\nArquivo não localizado.");
+		puts("\nArquivo nÃ£o localizado.");
 	}
 }
